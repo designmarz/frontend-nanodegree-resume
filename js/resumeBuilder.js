@@ -1,13 +1,13 @@
 // $(document).ready(function() {
 
-	var header 			=  document.getElementById("header");
-	var topContacts 	=  document.getElementById("topContacts");
-	var workExperience 	=  document.getElementById("workExperience");
-	var projects 		=  document.getElementById("projects");
-	var education 		=  document.getElementById("education");
-	var mapDiv			=  document.getElementById("mapDiv");
-	var hookup 			=  document.getElementById("lets-connect");
-	var footerContacts 	=  document.getElementById("footerContacts");
+	// var header 			=  document.getElementById("header");
+	// var topContacts 	=  document.getElementById("topContacts");
+	// var workExperience 	=  document.getElementById("workExperience");
+	// var projects 		=  document.getElementById("projects");
+	// var education 		=  document.getElementById("education");
+	// var mapDiv			=  document.getElementById("mapDiv");
+	// var hookup 			=  document.getElementById("lets-connect");
+	// var footerContacts 	=  document.getElementById("footerContacts");
 
 	var bio = {
 		"name": "Nick Marazzo",
@@ -18,7 +18,7 @@
 		"github": "https://github.com/designmarz",
 		"twitter": "https://www.twitter.com/NickMarazzo",
 		"location": "San Jose, CA",
-		"welcomeMessage": "To live a creative life, we must lose our fear of being wrong. -Joseph Chilton Pearc",
+		"welcomeMessage": "To live a creative life, we must lose our fear of being wrong.<br>- Joseph Chilton Pearc",
 		"skills": ["javascript", "ruby", "php"],
 		"biopic": "images/42.jpg"
 	};
@@ -34,11 +34,15 @@
 		var formattedLocation 	= HTMLlocation.replace("%data%", bio.location);
 
 		var formattedMessage 	= HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-		var formattedSkills 	= HTMLskills.replace("%data%", bio.skills);
+		var formattedSkills 	= "";
+   		for (var i = 0; i < bio.skills.length; i++) {
+		formattedSkills += HTMLskills.replace("%data%", bio.skills[i]);
+		};
 		var formattedPic 		= HTMLbioPic.replace("%data%", bio.biopic);
 
 		$('#header').prepend(formattedName, formattedRole);
-		$('#header').append(formattedPic, formattedMessage, formattedSkills);
+		$('#header').append(formattedPic, formattedMessage, HTMLskillsStart);
+		$('#skills').append(formattedSkills);
 		$('#topContacts, #footerContacts').append(formattedMobile, formattedEmail, formattedTwitter, formattedGithub);
 		$('#topContacts').append(formattedLocation);
 		// $('#header').append(formattedName, formattedRole, formattedPic, formattedMessage, formattedSkills);
@@ -51,7 +55,19 @@
 		{ "employer": "Comrade", 			"title": "Web Developer", 	"location": "Oakland, CA", 	"dates": "07/13/2015-Present", 		"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit." }
 			]};
 	work.display = function() {
-		var formattedRole 		= HTMLheaderRole.replace("%data%", bio.role);
+		var jobs = this.jobs;
+		var $target = $('#workExperience');
+		for (var i = 0; i < jobs.length; i++) {
+			$( $target ).append(HTMLworkStart);
+			var formattedSEmployer 	= HTMLworkEmployer.replace("%data%", jobs[i].employer);
+			var formattedTitle 		= HTMLworkTitle.replace("%data%", jobs[i].title);
+			var formattedDates 		= HTMLworkDates.replace("%data%", jobs[i].dates);
+			var formattedLocation	= HTMLworkLocation.replace("%data%", jobs[i].location);
+			var formattedDesc		= HTMLworkDescription.replace("%data%", jobs[i].description);
+			$(".work-entry:last").append(formattedSEmployer,formattedTitle,formattedDates,formattedLocation,formattedDesc);
+		}
+
+
 	};
 
 	var education = { "schools": [
@@ -73,7 +89,7 @@
 	};
 
 bio.display()
-// work.display()
+work.display()
 // education.display()
 // projects.display()
 // });
