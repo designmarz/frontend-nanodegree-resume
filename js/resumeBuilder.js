@@ -1,3 +1,14 @@
+// $(document).ready(function() {
+
+	var header 			=  document.getElementById("header");
+	var topContacts 	=  document.getElementById("topContacts");
+	var workExperience 	=  document.getElementById("workExperience");
+	var projects 		=  document.getElementById("projects");
+	var education 		=  document.getElementById("education");
+	var mapDiv			=  document.getElementById("mapDiv");
+	var hookup 			=  document.getElementById("lets-connect");
+	var footerContacts 	=  document.getElementById("footerContacts");
+
 	var bio = {
 		"name": "Nick Marazzo",
 		"role": "Web Developer",
@@ -9,38 +20,29 @@
 		"location": "San Jose, CA",
 		"welcomeMessage": "To live a creative life, we must lose our fear of being wrong. -Joseph Chilton Pearc",
 		"skills": ["javascript", "ruby", "php"],
-		"biopic": "/images/something.png"
+		"biopic": "images/42.jpg"
 	};
 	bio.display = function() {
 
 		var formattedName 		= HTMLheaderName.replace("%data%", bio.name);
 		var formattedRole 		= HTMLheaderRole.replace("%data%", bio.role);
-		var formattedContact 	= HTMLcontactGeneric.replace("%data%", bio.contact);
+		// var formattedContact 	= HTMLcontactGeneric.replace("%data%", bio.contact);
 		var formattedMobile 	= HTMLmobile.replace("%data%", bio.mobile);
 		var formattedEmail 		= HTMLemail.replace("%data%", bio.email);
 		var formattedTwitter 	= HTMLtwitter.replace("%data%", bio.twitter);
 		var formattedGithub 	= HTMLgithub.replace("%data%", bio.github);
-		var formattedBlog 		= HTMLblog.replace("%data%", bio.blog);
 		var formattedLocation 	= HTMLlocation.replace("%data%", bio.location);
 
-		console.log(
+		var formattedMessage 	= HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+		var formattedSkills 	= HTMLskills.replace("%data%", bio.skills);
+		var formattedPic 		= HTMLbioPic.replace("%data%", bio.biopic);
 
-			);
+		$('#header').prepend(formattedName, formattedRole);
+		$('#header').append(formattedPic, formattedMessage, formattedSkills);
+		$('#topContacts, #footerContacts').append(formattedMobile, formattedEmail, formattedTwitter, formattedGithub);
+		$('#topContacts').append(formattedLocation);
+		// $('#header').append(formattedName, formattedRole, formattedPic, formattedMessage, formattedSkills);
 
-   		// $(".work-entry:last").append(formattedLocation);
-
-		// var keyList = Object.keys(this);
-		// for (var i = 0; i < keyList.length; i++) {
-		// 	var keyz = keyList[i];
-		// 	if ( Array.isArray(this[keyz])  ) {
-		// 		console.log( keyz );
-		// 		for (var x = 0; x < this[keyz].length; x++) {
-		// 			console.log( this[keyz][x] );
-		// 		}
-		// 	} if ( !Array.isArray(this[keyz])  ) {
-		// 	console.log( this[keyz] );
-		// 	}
-		// }
 	};
 
 	var work = { "jobs": [
@@ -49,14 +51,7 @@
 		{ "employer": "Comrade", 			"title": "Web Developer", 	"location": "Oakland, CA", 	"dates": "07/13/2015-Present", 		"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit." }
 			]};
 	work.display = function() {
-		for (var i = 0; i < this.jobs.length; i++) {
-			var keyList = Object.keys( this.jobs[i] );
-			console.log("------------------------");
-				for (var x = 0; x < keyList.length; x++) {
-					console.log(this.jobs[i][keyList[x]]);
-				}
-		}
-		return console.log(HTMLworkStart);
+		var formattedRole 		= HTMLheaderRole.replace("%data%", bio.role);
 	};
 
 	var education = { "schools": [
@@ -65,14 +60,7 @@
 			{ "name": "Foothill", 			"location": "Los Altos", 	"majors": "Computer Science", 	"dates": "string", "url": "string" }
 				]};
 	education.display = function() {
-		for (var i = 0; i < this.schools.length; i++) {
-			var keyList = Object.keys( this.schools[i] );
-			console.log("------------------------");
-				for (var x = 0; x < keyList.length; x++) {
-					console.log(this.schools[i][keyList[x]]);
-				}
-		}
-		return console.log("------------------------");
+		var formattedRole 		= HTMLheaderRole.replace("%data%", bio.role);
 	};
 
 	var projects = { "onlineCourses": [
@@ -81,13 +69,11 @@
 			{ "title": "string", "dates": "string", "description": "string", "images": ["images/project3/lorem.jpg", "images/project3/lorem.jpg", "images/project3/lorem.jpg"] }
 				]};
 	projects.display = function() {
-		for (var i = 0; i < this.onlineCourses.length; i++) {
-			var keyList = Object.keys( this.onlineCourses[i] );
-			console.log("------------------------");
-				for (var x = 0; x < keyList.length; x++) {
-					console.log(this.onlineCourses[i][keyList[x]]);
-				}
-		}
-
-		return console.log("------------------------");
+		var formattedRole 		= HTMLheaderRole.replace("%data%", bio.role);
 	};
+
+bio.display()
+// work.display()
+// education.display()
+// projects.display()
+// });
