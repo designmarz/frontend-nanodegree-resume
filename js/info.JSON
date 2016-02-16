@@ -1,0 +1,48 @@
+{
+	"bio": [
+
+		{ "name": "Nick Marazzo" },
+		{ "role": "string" },
+		{ "contacts": "string" },
+		{ "mobile": "string" },
+		{ "email": "string" },
+		{ "github": "string" },
+		{ "twitter": "string" },
+		{ "location": "string" },
+		{ "welcomeMessage": "string" },
+		{ "skills": ["string", "string", "string"] },
+		{ "biopic": "/images/" },
+		{ "display": "function(){ console.log(this) } ;"}
+	],
+
+	"education": [
+		{ "schools": [
+			{ "name": "string", "location": "string", "majors": "string", "dates": "string", "url": "string" },
+			{ "name": "string", "location": "string", "majors": "string", "dates": "string", "url": "string" },
+			{ "name": "string", "location": "string", "majors": "string", "dates": "string", "url": "string" }
+					]},
+		{ "onlineCourses": [
+		 	{ "title": "string", "school": "string", "date": "string", "url": "string", "display": "function(){}" },
+			{ "title": "string", "school": "string", "date": "string", "url": "string", "display": "function(){}" },
+			{ "title": "string", "school": "string", "date": "string", "url": "string", "display": "function(){}" }
+					]}
+	],
+
+	"work": [
+
+		{ "jobs": [
+			{ "employer": "string", "title": "string", "location": "string", "dates": "string", "description": "string" },
+			{ "employer": "string", "title": "string", "location": "string", "dates": "string", "description": "string" },
+			{ "employer": "string", "title": "string", "location": "string", "dates": "string", "description": "string" }
+					]},
+		{ "display": "function(){ console.log(this) } ;" }
+	],
+
+	"projects": [
+		{ "onlineCourses": [
+		 	{ "title": "string", "dates": "string", "description": "string", "images": ["string", "string", "string"], "display": "function(){}" },
+			{ "title": "string", "dates": "string", "description": "string", "images": ["string", "string", "string"], "display": "function(){}" },
+			{ "title": "string", "dates": "string", "description": "string", "images": ["string", "string", "string"], "display": "function(){}" }
+					]}
+	]
+}
