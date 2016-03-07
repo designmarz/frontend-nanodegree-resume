@@ -44,7 +44,7 @@
 		$('#header').append(formattedPic, formattedMessage, HTMLskillsStart);
 		$('#skills').append(formattedSkills);
 		$('#topContacts, #footerContacts').append(formattedMobile, formattedEmail, formattedTwitter, formattedGithub);
-		$('#topContacts').append(formattedLocation);
+		$('#footerContacts').append(formattedLocation);
 		// $('#header').append(formattedName, formattedRole, formattedPic, formattedMessage, formattedSkills);
 
 	};
@@ -70,10 +70,31 @@
 
 	};
 
+	var projects = { "projects": [
+			// { "title": "Project Title", "dates": "02/15 - 03/15", "description": "Lorem Ipsum etc", "images": ["images/project1/lorem.png", "images/project1/lorem.png", "images/project1/lorem.png"] },
+			// { "title": "Project Title", "dates": "02/15 - 03/15", "description": "Lorem Ipsum etc", "images": ["images/project2/lorem.png", "images/project2/lorem.png", "images/project2/lorem.png"] },
+			{ "title": "Project Title", "dates": "02/15 - 03/15", "description": "Lorem Ipsum etc", "images": ["images/project3/lorem.png", "images/project3/lorem.png", "images/project3/lorem.png"] }
+				]};
+	projects.display = function() {
+		var projects = this.projects;
+		var $target = $('#projects');
+		for (var i = 0; i < projects.length; i++) {
+			$( $target ).append(HTMLprojectStart);
+			var formattedTitle 		= HTMLprojectTitle.replace("%data%", projects[i].title);
+			var formattedDates		= HTMLprojectDates.replace("%data%", projects[i].dates);
+			var formattedDescription= HTMLprojectDescription.replace("%data%", projects[i].description);
+			var formattedImage	= "";
+		for (var x = 0; x < projects[i].images.length; x++) {
+			formattedImage	+= HTMLprojectImage.replace("%data%", projects[i].images[x]);
+			}
+			$(".project-entry:last").append(formattedTitle,formattedDates,formattedDescription,formattedImage);
+		}
+	};
+
 	var education = { "schools": [
-			{ "name": "General Assembly", 	"location": "SF", 			"majors": "Web Development", 	"dates": "string", "url": "string" },
-			{ "name": "SJSU", 				"location": "SF", 			"majors": "Graphic Arts", 		"dates": "string", "url": "string" },
-			{ "name": "Foothill", 			"location": "Los Altos", 	"majors": "Computer Science", 	"dates": "string", "url": "string" }
+			{ "name": "General Assembly", 	"location": "SF", 			"majors": " Web Development", 	"dates": "02/15 - 03/15", "url": "www.lorem.com" },
+			{ "name": "SJSU", 				"location": "SF", 			"majors": " Graphic Arts", 		"dates": "02/15 - 03/15", "url": "www.lorem.com" },
+			{ "name": "Foothill", 			"location": "Los Altos", 	"majors": " Computer Science", 	"dates": "02/15 - 03/15", "url": "www.lorem.com" }
 				]};
 	education.display = function() {
 		var schools = this.schools;
@@ -90,27 +111,9 @@
 		}
 	};
 
-	var projects = { "onlineCourses": [
-			{ "title": "string", "dates": "string", "description": "string", "images": ["images/project1/lorem.jpg", "images/project1/lorem.jpg", "images/project1/lorem.jpg"] },
-			{ "title": "string", "dates": "string", "description": "string", "images": ["images/project2/lorem.jpg", "images/project2/lorem.jpg", "images/project2/lorem.jpg"] },
-			{ "title": "string", "dates": "string", "description": "string", "images": ["images/project3/lorem.jpg", "images/project3/lorem.jpg", "images/project3/lorem.jpg"] }
-				]};
-	projects.display = function() {
-		var onlineCourses = this.onlineCourses;
-		var $target = $('#education');
-		for (var i = 0; i < onlineCourses.length; i++) {
-			$( $target ).append(HTMLonlineClasses);
-			var formattedTitle 		= HTMLonlineTitle.replace("%data%", onlineCourses[i].title);
-			var formattedSchool		= HTMLonlineSchool.replace("%data%", onlineCourses[i].url);
-			var formattedDates	= HTMLonlineDates.replace("%data%", onlineCourses[i].dates);
-			var formattedUrl	= HTMLonlineURL.replace("%data%", onlineCourses[i].url);
-
-			$(".education-entry:last").append(formattedName,formattedUrl,formattedLocation,formattedMajors,formattedDates);
-		}
-	};
 
 bio.display()
 work.display()
 education.display()
-// projects.display()
+projects.display()
 // });

@@ -81,11 +81,9 @@ function logClicks(x,y) {
       y: y
     }
   );
-  console.log('x location: ' + x + '; y location: ' + y);
 }
 
 $(document).click(function(loc) {
-  // console.log( "left: " + loc.clientX + ", top: " + loc.clientY );
   logClicks(loc.clientX, loc.clientY);
 });
 
