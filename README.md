@@ -82,19 +82,30 @@ The resume has four distinct sections: work, education, projects and a header wi
             display: function taking no parameters
 
 2. Iterate through each JSON object and append its information to index.html in the correct section.
- * First off, you’ll be using jQuery’s `selector.append()` and `selector.prepend()` functions to modify index.html. `selector.append()` makes an element appear at the end of a selected section. `selector.prepend()` makes an element appear at the beginning of a selected section.
-   * Pay close attention to the ids of the `<div>`s in index.html and the HTML snippets in helper.js. They’ll be very useful as jQuery selectors for `selector.append()` and `selector.prepend()`
-* You’ll also be using the JavaScript method `string.replace(old, new)` to swap out all the placeholder text (e.g. `%data%`) for data from your resume JSON objects.
-* Here’s an example of some code that would add the location of one your companies to the page:
-   * `var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);`
-   * `$(".work-entry:last").append(formattedLocation);`
- * Use the mockup at the page of this document as a guide for the order in which you should append elements to the page.
+
+    * First off, you’ll be using jQuery’s `selector.append()` and `selector.prepend()` functions to modify index.html. `selector.append()` makes an element appear at the end of a selected section. `selector.prepend()` makes an element appear at the beginning of a selected section.
+
+    * Pay close attention to the ids of the `<div>`s in index.html and the HTML snippets in helper.js. They’ll be very useful as jQuery selectors for `selector.append()` and `selector.prepend()`
+
+    * You’ll also be using the JavaScript method `string.replace(old, new)` to swap out all the placeholder text (e.g. `%data%`) for data from your resume JSON objects.
+
+    * Here’s an example of some code that would add the location of one your companies to the page:
+
+    * `var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);`
+
+    * `$(".work-entry:last").append(formattedLocation);`
+
+    * Use the mockup at the page of this document as a guide for the order in which you should append elements to the page.
 
 
 3. The resume includes an interactive map. Do the following to add it.
- * In resumeBuilder.js, append the googleMap string to `<div id=”mapDiv”>`.
- * In index.html, uncomment the Google script element: `<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>`
- * In helper.js, at the bottom of the file, uncomment code to initialize map and set fitBounds.
+    * In resumeBuilder.js, append the googleMap string to `<div id=”mapDiv”>`.
+
+    * In index.html, uncomment the Google script element: `<script type="text/javascript" src="http://maps.googleapis.com/maps/api
+    /js?libraries=places"></script>`
+
+    * In helper.js, at the bottom of the file, uncomment code to initialize map and set fitBounds.
+
 
 
 

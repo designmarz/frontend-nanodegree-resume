@@ -36,7 +36,7 @@
 		var formattedMessage 	= HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 		var formattedSkills 	= "";
    		for (var i = 0; i < bio.skills.length; i++) {
-		formattedSkills += HTMLskills.replace("%data%", bio.skills[i]);
+			formattedSkills += HTMLskills.replace("%data%", bio.skills[i]);
 		};
 		var formattedPic 		= HTMLbioPic.replace("%data%", bio.biopic);
 
@@ -111,9 +111,15 @@
 		}
 	};
 
+	var map = {};
+		map.display = function () {
+			$('#mapDiv').append(googleMap);
+		}
+
 
 bio.display()
 work.display()
 education.display()
 projects.display()
+map.display()
 // });
