@@ -87,11 +87,9 @@
 			var formattedDescription= HTMLprojectDescription.replace("%data%", project.description);
 			var formattedImage	= "";
 
-		project.images.forEach(function(image){
-			formattedImage	+= HTMLprojectImage.replace("%data%", image);
-
+			project.images.forEach(function(image){
+				formattedImage	+= HTMLprojectImage.replace("%data%", image);
 			});
-
 			$(".project-entry:last").append(formattedTitle,formattedDates,formattedDescription,formattedImage);
 		});
 	};
@@ -109,17 +107,17 @@
 		schools.forEach(function(school){
 			$( $target ).append(HTMLschoolStart);
 			var formattedName 	= HTMLschoolName.replace("%data%", school.name);
-			var formattedUrl		= HTMLschoolDegree.replace("%data%", school.url);
+			var formattedUrl		= HTMLonlineURL.replace("%data%", school.url).replace("#", school.url);
 			var formattedLocation		= HTMLschoolLocation.replace("%data%", school.location);
 			var formattedMajors 		= HTMLschoolMajor.replace("%data%", school.majors);
 			var formattedDates		= HTMLschoolDates.replace("%data%", school.dates);
 
-			$(".education-entry:last").append(formattedName,formattedUrl,formattedLocation,formattedMajors,formattedDates);
+			$(".education-entry:last").append(formattedLocation,formattedName,formattedDates,formattedMajors,formattedUrl);
 		});
 	};
 
 	var map = {};
-		map.display = function () {
+	map.display = function () {
 			$('#mapDiv').append(googleMap);
 		}
 
