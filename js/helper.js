@@ -123,6 +123,7 @@ function initializeMap() {
 
     // initializes an empty array
     var locations = [];
+    console.log(locations);
 
     // adds the single location property from bio to the locations array
     locations.push(bio.contacts.location);
@@ -142,7 +143,10 @@ function initializeMap() {
     work.jobs.forEach(function(job){
       locations.push(job.location);
     });
-
+console.log("locations Function");
+console.log(locations);
+locations.splice(0,1)
+console.log(locations);
     return locations;
   }
 

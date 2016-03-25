@@ -12,7 +12,7 @@
 	var bio = {
 		"name": "Nick Marazzo",
 		"role": "Web Developer",
-		"contacts": "string",
+		"contacts": "San Jose, CA",
 		"mobile": "408.807.5583",
 		"email": "nick@designmarz.com",
 		"github": "https://github.com/designmarz",
@@ -122,9 +122,9 @@
 		}
 
 
-bio.display()
-work.display()
-education.display()
-projects.display()
-map.display()
+bio.display();
+work.display();
+education.display();
+projects.display();
+map.display();
 // });
