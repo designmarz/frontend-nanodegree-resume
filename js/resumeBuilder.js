@@ -12,12 +12,15 @@
 	var bio = {
 		"name": "Nick Marazzo",
 		"role": "Web Developer",
-		"contacts": "San Jose, CA",
-		"mobile": "408.807.5583",
-		"email": "nick@designmarz.com",
-		"github": "https://github.com/designmarz",
-		"twitter": "https://www.twitter.com/NickMarazzo",
-		"location": "San Jose, CA",
+		"contacts": {
+		    "mobile": "408.807.5583",
+			"email": "nick@designmarz.com",
+			"github": "https://github.com/designmarz",
+			"twitter": "https://www.twitter.com/NickMarazzo",
+			"location": "San Jose, CA",
+		},
+
+
 		"welcomeMessage": "To live a creative life, we must lose our fear of being wrong.<br>- Joseph Chilton Pearc",
 		"skills": ["javascript", "ruby", "php"],
 		"biopic": "images/42.jpg"
@@ -27,11 +30,11 @@
 		var formattedName 		= HTMLheaderName.replace("%data%", bio.name);
 		var formattedRole 		= HTMLheaderRole.replace("%data%", bio.role);
 		// var formattedContact 	= HTMLcontactGeneric.replace("%data%", bio.contact);
-		var formattedMobile 	= HTMLmobile.replace("%data%", bio.mobile);
-		var formattedEmail 		= HTMLemail.replace("%data%", bio.email);
-		var formattedTwitter 	= HTMLtwitter.replace("%data%", bio.twitter);
-		var formattedGithub 	= HTMLgithub.replace("%data%", bio.github);
-		var formattedLocation 	= HTMLlocation.replace("%data%", bio.location);
+		var formattedMobile 	= HTMLmobile.replace("%data%", bio.contacts.mobile);
+		var formattedEmail 		= HTMLemail.replace("%data%", bio.contacts.email);
+		var formattedTwitter 	= HTMLtwitter.replace("%data%", bio.contacts.twitter);
+		var formattedGithub 	= HTMLgithub.replace("%data%", bio.contacts.github);
+		var formattedLocation 	= HTMLlocation.replace("%data%", bio.contacts.location);
 
 		var formattedMessage 	= HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 		var formattedPic 		= HTMLbioPic.replace("%data%", bio.biopic);
@@ -66,7 +69,7 @@
 			var formattedDates 		= HTMLworkDates.replace("%data%", job.dates);
 			var formattedLocation	= HTMLworkLocation.replace("%data%", job.location);
 			var formattedDesc		= HTMLworkDescription.replace("%data%", job.description);
-			$(".work-entry:last").append(formattedEmployer,formattedTitle,formattedDates,formattedLocation,formattedDesc);
+			$(".work-entry:last").append(formattedEmployer+formattedTitle,formattedDates,formattedLocation,formattedDesc);
 		});
 	};
 
@@ -95,9 +98,9 @@
 	};
 
 	var education = { "schools": [
-			{ "name": "General Assembly", 	"location": "SF", 			"majors": " Web Development", 	"dates": "02/15 - 03/15", "url": "www.lorem.com" },
-			{ "name": "SJSU", 				"location": "SF", 			"majors": " Graphic Arts", 		"dates": "02/15 - 03/15", "url": "www.lorem.com" },
-			{ "name": "Foothill", 			"location": "Los Altos", 	"majors": " Computer Science", 	"dates": "02/15 - 03/15", "url": "www.lorem.com" }
+			{ "name": "General Assembly", 	"degree": "WDI", "location": "SF", 			"majors": " Web Development", 	"dates": "02/15 - 03/15", "url": "www.lorem.com" },
+			{ "name": "SJSU", 			 	"degree": "BA",	"location": "SF", 			"majors": " Graphic Arts", 		"dates": "02/15 - 03/15", "url": "www.lorem.com" },
+			{ "name": "Foothill", 	 		"degree": "AA",	"location": "Los Altos", 	"majors": " Computer Science", 	"dates": "02/15 - 03/15", "url": "www.lorem.com" }
 				]
 			};
 	education.display = function() {
@@ -107,19 +110,20 @@
 		schools.forEach(function(school){
 			$( $target ).append(HTMLschoolStart);
 			var formattedName 	= HTMLschoolName.replace("%data%", school.name);
+			var formattedDegree = HTMLschoolDegree.replace("%data%", school.degree);
 			var formattedUrl		= HTMLonlineURL.replace("%data%", school.url).replace("#", school.url);
 			var formattedLocation		= HTMLschoolLocation.replace("%data%", school.location);
 			var formattedMajors 		= HTMLschoolMajor.replace("%data%", school.majors);
 			var formattedDates		= HTMLschoolDates.replace("%data%", school.dates);
 
-			$(".education-entry:last").append(formattedLocation,formattedName,formattedDates,formattedMajors,formattedUrl);
+			$(".education-entry:last").append(formattedLocation,formattedName+formattedDegree,formattedDates,formattedMajors,formattedUrl);
 		});
 	};
 
 	var map = {};
 	map.display = function () {
 			$('#mapDiv').append(googleMap);
-		}
+		};
 
 
 bio.display();
